@@ -18,15 +18,15 @@ int main() {
         //and execute finishing code
         if (feof(inputFile)) {
             if (count > 0) {
-                printf("Santa needs to go %i floors up!", count);
+                printf("\nSanta needs to go %i floors up!\n", count);
                 break;
             }
             else if (count < 0) {
-                printf("Santa needs to go %i floors down!", count);
+                printf("\nSanta needs to go %i floors down!\n", count);
                 break;
             }
             else {
-                printf("i hope i dont see this message...");
+                printf("\nEither the file was empty or Santa needs to go nowhere...\n");
                 break;
             }
         }
