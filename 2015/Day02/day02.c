@@ -2,9 +2,12 @@
 #include "day02.h"
 
 int main() {
-  int totalSA = 0;
+  int wrapPerPresent = 0;
+  int totalWrap = 0;
   FILE *inputFile;
-  int currentChar;
+  int bow = 0;
+  int ribbonPerPresent = 0;
+  int totalRibbon = 0;
   
   int l;
   int w;
@@ -12,16 +15,19 @@ int main() {
 
   inputFile = fopen("input.txt", "r");
 
-  while(1) {
-    currentChar = null; //need to pick up from here on how to read the dimensions
+  while((fscanf(inputFile, "%ix%ix%i", &l, &w, &h)) != EOF) {
+    wrapPerPresent = surfaceArea(l, w, h) + smallestSide(l, w, h);
+    totalWrap += wrapPerPresent;
 
-    if(feof(inputFile)) {
-      printf("\nTotal square footage of wrapping paper needed: \n", totalSA);
-      break;
-    }
-
-
+    bow = l*w*h;
+    ribbonPerPresent = smallestPerimeter(l, w, h) + bow;
+    totalRibbon += ribbonPerPresent;
   }
 
-  retun 0
+  fclose(inputFile);
+
+  printf("\nTotal square footage of wrapping paper needed:\t%i\n", totalWrap);
+  printf("\nTotal footage of ribbon needed:\t%i\n", totalRibbon);
+
+  return 0;
 }

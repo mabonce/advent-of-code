@@ -11,7 +11,7 @@ int main() {
     inputFile = fopen("input.txt","r");
 
     while(1) {
-        //get current char to start evaulation
+        //get current char to start evaluation
         currentChar = fgetc(inputFile);
 
         //check if we are at end of file
